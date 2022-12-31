@@ -16,20 +16,22 @@ namespace ComponentBasedGame.Components
             {
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
                 {
-                    transform.Position = new Vector2 (transform.Position.X + elapsedGameTime * transform.Speed, transform.Position.Y);
+                    transform.Direction = new Vector2 (transform.Direction.X +1, transform.Direction.Y);
                 }
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
                 {
-                    transform.Position = new Vector2(transform.Position.X - elapsedGameTime * transform.Speed, transform.Position.Y);
+                    transform.Direction = new Vector2(transform.Direction.X - 1 , transform.Direction.Y);
                 }
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_W))
                 {
-                    transform.Position = new Vector2(transform.Position.X, transform.Position.Y - elapsedGameTime * transform.Speed);
+                    transform.Direction = new Vector2(transform.Direction.X , transform.Direction.Y -1);
                 }
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
                 {
-                    transform.Position = new Vector2(transform.Position.X, transform.Position.Y + elapsedGameTime * transform.Speed);
+                    transform.Direction = new Vector2(transform.Direction.X , transform.Direction.Y + 1);
                 }
+                    
+            
 
             }
         }

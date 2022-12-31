@@ -4,13 +4,13 @@ using ComponentBasedGame.Entities;
 
 namespace ComponentBasedGame.Components
 {
-    internal class DrawableComponent : IComponent
+    internal class DrawableRectangleComponent: IComponent
     {
 
         Rectangle _rectangle;
         Color _color;
 
-        public DrawableComponent(Rectangle rectangle, Color color)
+        public DrawableRectangleComponent(Rectangle rectangle, Color color)
         {
             _rectangle = rectangle;
             _color = color;
@@ -21,6 +21,7 @@ namespace ComponentBasedGame.Components
         public void Update(float elapsedGameTime)
         {
             var transform = Entity!.GetComponent<TransformCompoment>();
+
 
             if (transform is not null)
             {

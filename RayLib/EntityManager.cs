@@ -12,9 +12,10 @@ namespace ComponentBasedGame
 
 
 
-        private DrawableSystem _drawableComponentSystem = new ();
+        private DrawableRectangleSystem _drawableComponentSystem = new ();
         private TransformSystem _transformComponentSystem = new();
         private InputSystem _inputSystem = new();
+        private DrawableTextureSystem _drawableTextureSystem= new ();
 
         public EntityManager()
         {
@@ -31,6 +32,7 @@ namespace ComponentBasedGame
         public void Draw (float elapsedTime) 
         {
             _drawableComponentSystem.Update(elapsedTime);
+            _drawableTextureSystem.Update(elapsedTime);
         }
         public void AfterDraw (float elapsedTime) 
         {
@@ -42,17 +44,22 @@ namespace ComponentBasedGame
 
             foreach (var component in entity.Components)
             {
-                if (component.GetType() == typeof(DrawableComponent))
+
+                if (component.GetType() == typeof(DrawableRectangleComponent))
                 {
-                    _drawableComponentSystem.Register((DrawableComponent)component);
+                    _drawableComponentSystem.Register((DrawableRectangleComponent)component);
                 }
-                if (component.GetType() == typeof(TransformCompoment))
+                else if (component.GetType() == typeof(TransformCompoment))
                 {
                     _transformComponentSystem.Register((TransformCompoment)component);
                 }
-                if (component.GetType() == typeof(PlayerInputComponent))
+                else if (component.GetType() == typeof(PlayerInputComponent))
                 {
                     _inputSystem.Register((PlayerInputComponent)component);
+                }
+                else if (component.GetType() == typeof(DrawableTextureComponent))
+                {
+                    _drawableTextureSystem.Register((DrawableTextureComponent)component);
                 }
             }
             Entities.Add (entity);

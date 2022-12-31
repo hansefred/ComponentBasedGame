@@ -27,7 +27,12 @@ namespace ComponentBasedGame.Systems
 
     }
 
-    internal class DrawableSystem : BaseSystem<DrawableComponent>
+    internal class DrawableRectangleSystem : BaseSystem<DrawableRectangleComponent>
+    {
+
+    }
+
+    internal class DrawableTextureSystem : BaseSystem<DrawableTextureComponent> 
     {
 
     }

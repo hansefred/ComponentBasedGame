@@ -5,6 +5,8 @@ namespace ComponentBasedGame.Components
 {
     internal class TransformCompoment : IComponent
     {
+
+        public Vector2 Direction { get; set; }
         public Vector2 Position { get; set; }
         public Entity? Entity { get; set; }
 
@@ -12,7 +14,9 @@ namespace ComponentBasedGame.Components
 
         public void Update(float elapsedGameTime)
         {
+            Position = new Vector2(Position.X + (Direction.X * Speed * elapsedGameTime), Position.Y + ( Direction.Y * Speed * elapsedGameTime));
 
+            Direction = new Vector2();
         }
     }
 }

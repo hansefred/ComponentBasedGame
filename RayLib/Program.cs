@@ -10,7 +10,8 @@ var EntityManager = new ComponentBasedGame.EntityManager();
 
 var Entity = new Entity();
 Entity.AddComponent(new TransformCompoment() { Position = new System.Numerics.Vector2(300, 400), Speed=100 });
-Entity.AddComponent(new DrawableComponent(new Rectangle(10, 10, 100, 100), Color.RED));
+var image = Raylib.LoadImage("Resources\\Texture\\WirelessDisplay.png");
+Entity.AddComponent(new DrawableTextureComponent() { Texture2D = Raylib.LoadTextureFromImage(image), T_Int = Color.BLUE }); 
 Entity.AddComponent(new PlayerInputComponent());
 EntityManager.Register(Entity);
 
